@@ -79,5 +79,25 @@ describe('Calculator', () => {
     fireEvent.click(buttonEquals);
     expect(runningTotal).toHaveTextContent('20');
   })
+
+  it('should return 20 when 2 is multiplied by 5 then 10 is added', () => {
+    const button2 = container.getByTestId('number2');
+    const button5 = container.getByTestId('number5');
+    const button1 = container.getByTestId('number1');
+    const button0 = container.getByTestId('number0');
+    const runningTotal = container.getByTestId('running-total');
+    const buttonEquals = container.getByTestId('equals');
+    const buttonAdd = container.getByTestId('add');
+    const buttonMultiply = container.getByTestId('multiply');
+    fireEvent.click(button2);
+    fireEvent.click(buttonMultiply);
+    fireEvent.click(button5);
+    fireEvent.click(buttonEquals);
+    fireEvent.click(buttonAdd);
+    fireEvent.click(button1);
+    fireEvent.click(button0);
+    fireEvent.click(buttonEquals);
+    expect(runningTotal).toHaveTextContent('20');
+  })
 })
 
