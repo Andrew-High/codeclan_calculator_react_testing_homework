@@ -68,5 +68,16 @@ describe('Calculator', () => {
     fireEvent.click(buttonEquals);
     expect(runningTotal).toHaveTextContent('3');
   })
+
+  it('should return 20 when 2, 0 then equals is pressed', () => {
+    const button2 = container.getByTestId('number2');
+    const button0 = container.getByTestId('number0');
+    const runningTotal = container.getByTestId('running-total');
+    const buttonEquals = container.getByTestId('equals');
+    fireEvent.click(button2);
+    fireEvent.click(button0);
+    fireEvent.click(buttonEquals);
+    expect(runningTotal).toHaveTextContent('20');
+  })
 })
 
