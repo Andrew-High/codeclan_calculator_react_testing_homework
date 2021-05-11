@@ -27,5 +27,18 @@ describe('Calculator', () => {
     fireEvent.click(buttonEquals);
     expect(runningTotal).toHaveTextContent('5');
   })
+
+  it('should subtract 4 from 7 and get 3', () => {
+    const button7 = container.getByTestId('number7');
+    const button4 = container.getByTestId('number4');
+    const buttonSubtract = container.getByTestId('subtract');
+    const runningTotal = container.getByTestId('running-total');
+    const buttonEquals = container.getByTestId('equals');
+    fireEvent.click(button7);
+    fireEvent.click(buttonSubtract);
+    fireEvent.click(button4);
+    fireEvent.click(buttonEquals);
+    expect(runningTotal).toHaveTextContent('3');
+  })
 })
 
