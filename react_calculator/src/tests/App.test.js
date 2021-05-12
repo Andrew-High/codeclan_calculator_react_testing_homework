@@ -99,5 +99,19 @@ describe('Calculator', () => {
     fireEvent.click(buttonEquals);
     expect(runningTotal).toHaveTextContent('20');
   })
+
+  it('should clear the running total without affecting the calculation', () => {
+    const button2 = container.getByTestId('number2');
+    const buttonAdd = container.getByTestId('add');
+    const buttonEquals = container.getByTestId('equals');
+    const runningTotal = container.getByTestId('running-total');
+    const buttonClear = container.getByTestId('clear');
+    fireEvent.click(button2);
+    fireEvent.click(buttonAdd);
+    fireEvent.click(button2);
+    fireEvent.click(buttonEquals);
+    fireEvent.click(buttonClear);
+    expect(runningTotal).toHaveTextContent('0');
+  })
 })
 
