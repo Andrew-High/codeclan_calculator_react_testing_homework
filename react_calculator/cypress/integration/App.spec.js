@@ -73,5 +73,11 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '1.5');
   })
 
-  
+  it('should display infinity when dividing a number by 0', () => {
+    cy.get('#number2').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 'Infinity');
+  })
 })

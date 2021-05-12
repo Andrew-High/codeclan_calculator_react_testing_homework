@@ -78,7 +78,21 @@ function App() {
     setRunningTotal(parseFloat(previousTotal) / parseFloat(number));
   }
 
-
+  if (runningTotal.text === "Infinity") {
+    return (
+      <div className="container">
+        <div className="calculator">
+          <div data-testid="running-total" className="display">U+221E </div>
+          <Calculator 
+            handleNumber={numberClick} 
+            handleOperator={operatorClick} 
+            handleClear={clearClick}
+          />
+        </div>
+      </div>
+  ); 
+  }
+  
   return (
     <div className="container">
     <div className="calculator">
